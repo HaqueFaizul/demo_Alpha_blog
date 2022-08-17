@@ -1,0 +1,26 @@
+<h1 class="h1">Show All Articles Here</h1>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @article.each do |article| %>
+		<tr>
+			<td><%= article.id %></td>
+			<td><%= article.title %></td>
+			<td><%= article.description %></td>
+			<td><%= link_to "Show", article_path(article)%></td>
+			<td><%= link_to "Delete", article_path(article), method: :DELETE %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Create new Article", new_article_path %>
+</p>
